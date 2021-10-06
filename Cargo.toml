@@ -1,0 +1,18 @@
+[package]
+name = "kchat"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dependencies.cursive]
+version = "0.16"
+default-features = false
+
+[features]
+# Crossterm is the default for cross-platform support
+# If you would prefer ncurses, add "--features ncurses-backend" to the cargo command
+default = ["cursive/crossterm-backend"]
+ncurses-backend = ["cursive/ncurses-backend"]
