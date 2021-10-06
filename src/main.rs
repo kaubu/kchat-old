@@ -2,7 +2,20 @@ use cursive::Cursive;
 use cursive::event::{Event, Key};
 use cursive::menu::MenuTree;
 use cursive::view::ScrollStrategy;
-use cursive::views::{Button, Dialog, DummyView, EditView, LinearLayout, ListView, NamedView, ResizedView, ScrollView, SelectView, TextArea, TextView};
+use cursive::views::{
+	Button,
+	Dialog,
+	DummyView,
+	EditView,
+	LinearLayout,
+	ListView,
+	NamedView,
+	ResizedView,
+	ScrollView,
+	SelectView,
+	TextArea,
+	TextView
+};
 use cursive::traits::{Boxable, Nameable};
 
 const _DEBUG: bool = true;
@@ -29,10 +42,17 @@ fn main() {
 	siv.menubar()
 		.add_subtree("Help", MenuTree::new()
 			.leaf("General", |s| {
-				s.add_layer(Dialog::info("General help coming soon"))
+				s.add_layer(
+					Dialog::info("General help coming soon")
+				);
 			})
 			.leaf("About", |s| {
-				s.add_layer(Dialog::info(&format!("{} v{}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"))));
+				s.add_layer(Dialog::info(
+					&format!(
+						"{} v{}", env!("CARGO_PKG_NAME"),
+						env!("CARGO_PKG_VERSION")
+					)
+				));
 			}));
 	
 	siv.set_autohide_menu(false);
